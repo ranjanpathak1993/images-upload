@@ -1,0 +1,12 @@
+version: 0.0
+os: linux
+files:
+  - source: target/upload-app.jar
+    destination: /home/ec2-user/app
+hooks:
+  ApplicationStop:
+    - location: scripts/stop.sh
+      timeout: 20
+  ApplicationStart:
+    - location: scripts/start.sh
+      timeout: 20
